@@ -23,10 +23,14 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
     }
     return Container(
       decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage("assets/images/default_bg.png",),fit: BoxFit.cover),
+        image: DecorationImage(image: AssetImage(
+          Theme.of(context).brightness == Brightness.dark
+            ? "assets/images/dark_bg.png"
+            : "assets/images/default_bg.png",),
+            fit: BoxFit.cover,
+        ),
       ),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           centerTitle: true,
@@ -41,22 +45,19 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
         body: Padding(
           padding: const EdgeInsets.all(18.0),
           child: Card(
-            shape: RoundedRectangleBorder(
+           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(14),
                   ),
             child: ListView.separated(
               shrinkWrap: true,
-              separatorBuilder: (context,index)=> Divider(thickness: 5,color: AppColors.primaryColor,),
+              separatorBuilder: (context,index)=> Divider(),
               itemBuilder: (context,index){
                return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     verses[index],
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.elMessiri(
-                      fontSize: 25,
-                      fontWeight: FontWeight.w400,
-                    ),
+                      style: Theme.of(context).textTheme.bodyMedium
                   ),
                 );
               },
@@ -70,7 +71,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
 
   loadSuraFile(int index)async{
     String sura= await rootBundle.loadString("assets/file/${index+1}.txt");
-    List<String> suraLines= sura.split("/n");
+    List<String> suraLines= sura.split("\n");
     verses=suraLines;
     setState(() {
 

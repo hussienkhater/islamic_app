@@ -30,10 +30,7 @@ class QuraanTap extends StatelessWidget {
             "assets/images/qur2an_screen_logo.png",
           height: 227,
         ),
-        Divider(
-          thickness: 3,
-          color: AppColors.primaryColor,
-        ),
+        Divider(),
         Center(
           child: Text("إسم السورة",
             style: GoogleFonts.elMessiri(
@@ -42,10 +39,7 @@ class QuraanTap extends StatelessWidget {
             ),
           ),
         ),
-        Divider(
-          thickness: 3,
-          color: AppColors.primaryColor,
-        ),
+        Divider(),
         Expanded(
             child: ListView.separated(
               separatorBuilder: (context,index)=>Row(
@@ -53,10 +47,7 @@ class QuraanTap extends StatelessWidget {
                   Expanded(child: Icon(Icons.star_border,color: AppColors.primaryColor,)),
                   Expanded(
                     flex: 2,
-                    child: Divider(
-                      thickness: 2,
-                      color: AppColors.primaryColor,
-                    ),
+                    child: Divider(),
                   ),
                   Expanded(child: Icon(Icons.star_border,color: AppColors.primaryColor,)),
                 ],
