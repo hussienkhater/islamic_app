@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islami_app/hadeeth_model.dart';
+import 'package:islami_app/providers/my_provider.dart';
+import 'package:provider/provider.dart';
 
 class HadeethDetailsScreen extends StatelessWidget {
   const HadeethDetailsScreen({super.key});
   static const String routeName= "HadeethScreen";
   @override
   Widget build(BuildContext context) {
+    var pro= Provider.of<myProvider>(context);
     var model = ModalRoute.of(context)?.settings.arguments as HadeethModel;
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(image: AssetImage(
-          Theme.of(context).brightness == Brightness.dark
+          pro.appTheme== ThemeMode.dark
               ? "assets/images/dark_bg.png"
               : "assets/images/default_bg.png",),
           fit: BoxFit.cover,
