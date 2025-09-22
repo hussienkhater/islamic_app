@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islami_app/colors.dart';
+import 'package:islami_app/providers/my_provider.dart';
 import 'package:islami_app/tabs/ahadeeth.dart';
 import 'package:islami_app/tabs/quraan.dart';
 import 'package:islami_app/tabs/radio.dart';
 import 'package:islami_app/tabs/sbha.dart';
 import 'package:islami_app/tabs/setting.dart';
+import 'package:provider/provider.dart';
 
 import 'colors.dart';
 
@@ -22,11 +24,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var pro= Provider.of<myProvider>(context);
     return Stack(
       children: [
         Positioned.fill(
           child: Image.asset(
-            Theme.of(context).brightness == Brightness.dark
+            pro.appTheme== ThemeMode.dark
                 ? "assets/images/dark_bg.png"
                 : "assets/images/default_bg.png",
             fit: BoxFit.cover,
@@ -38,11 +41,10 @@ class _HomeScreenState extends State<HomeScreen> {
             backgroundColor: Colors.transparent,
             centerTitle: true,
             title: Text(
-                "إسلامي",
-              style: GoogleFonts.elMessiri(
-                fontSize: 30,
-                fontWeight: FontWeight.w700,
-              ),
+                "Islami",
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                fontSize: 40
+              )
             ),
           ),
           bottomNavigationBar: BottomNavigationBar(
