@@ -18,10 +18,9 @@ class MyThemeData{
     cardTheme: CardTheme(
       color: Colors.white,
     ),
-    dividerTheme: DividerThemeData(
-      thickness: 3,
-      color: AppColors.primaryColor,
-    ),
+      dividerTheme: DividerThemeData(
+        thickness: 3,
+      ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       showUnselectedLabels: false,
       showSelectedLabels: false,
@@ -34,7 +33,7 @@ class MyThemeData{
   appBarTheme: AppBarTheme(
   color: Colors.transparent,
   titleTextStyle: GoogleFonts.elMessiri(
-  fontSize: 30,
+  fontSize: 25,
   fontWeight: FontWeight.bold,
   color: Color(0xFF242424),
   ),
@@ -73,7 +72,7 @@ class MyThemeData{
       iconTheme: IconThemeData(size: 50, color: AppColors.yellowColor),
       centerTitle: true,
       titleTextStyle: GoogleFonts.elMessiri(
-        fontSize: 30,
+        fontSize: 25,
         fontWeight: FontWeight.bold,
         color: Colors.white,
       )
