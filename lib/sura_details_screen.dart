@@ -17,12 +17,9 @@ class SuraDetailsScreen extends StatelessWidget {
     var model= ModalRoute.of(context)?.settings.arguments as SuraModel;
 
     return ChangeNotifierProvider(
-      create: (context) => suraDetailsProvider(),
+      create: (context) => suraDetailsProvider()..loadSuraFile(model.Index),
       builder: (context,child){
         var provider= Provider.of<suraDetailsProvider>(context);
-        if(provider.verses.isEmpty){
-          provider.loadSuraFile(model.Index);
-        }
         return Container(
           decoration: BoxDecoration(
             image: DecorationImage(image: AssetImage(

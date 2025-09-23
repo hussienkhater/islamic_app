@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islami_app/colors.dart';
@@ -41,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
             backgroundColor: Colors.transparent,
             centerTitle: true,
             title: Text(
-                "Islami",
+                "islami".tr(),
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 fontSize: 40
               )

@@ -1,8 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:islami_app/hadeeth_details.dart';
-import 'package:islami_app/hadeeth_model.dart';
 import 'package:islami_app/providers/ahadeeth_provider.dart';
 import 'package:islami_app/providers/my_provider.dart';
 import 'package:provider/provider.dart';
@@ -36,7 +35,7 @@ class AhadeethTap extends StatelessWidget {
               ,
             ),
             Center(
-              child: Text("أحاديث",
+              child: Text("ahadeeth".tr(),
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
             ),

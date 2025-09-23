@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:islami_app/bottom_sheet/lang_sheet.dart';
 import 'package:islami_app/colors.dart';
@@ -11,12 +12,13 @@ class SettingTap extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var pro= Provider.of<myProvider>(context);
+    Locale currentLocal = context.locale;
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text('Theme',
+          Text('theme'.tr(),
           style: Theme.of(context).textTheme.bodyMedium,
           ),
           SizedBox(
@@ -43,7 +45,7 @@ class SettingTap extends StatelessWidget {
               },
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
-                child: Text(pro.appTheme==ThemeMode.light?'Light':'Dark',
+                child: Text(pro.appTheme==ThemeMode.light?"light".tr():"dark".tr(),
                 style: Theme.of(context).textTheme.
                 bodyMedium?.
                 copyWith(color:
@@ -60,7 +62,7 @@ class SettingTap extends StatelessWidget {
           SizedBox(
             height: 12,
           ),
-          Text('Language',
+          Text('language'.tr(),
             style: Theme.of(context).textTheme.bodyMedium,
           ),
           SizedBox(
@@ -87,7 +89,11 @@ class SettingTap extends StatelessWidget {
               },
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
-                child: Text('English',
+                child: Text(currentLocal==Locale("en")?
+                    "English"
+                    :
+                    "عربي"
+                    ,
                   style: Theme.of(context).
                   textTheme.
                   bodyMedium?.

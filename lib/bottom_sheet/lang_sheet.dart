@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:islami_app/providers/my_provider.dart';
 import 'package:provider/provider.dart';
@@ -10,6 +11,7 @@ class LangSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var pro= Provider.of<myProvider>(context);
+    Locale currentLocal = context.locale;
     return Container(
       decoration: BoxDecoration(
           color: pro.appTheme==ThemeMode.light?
@@ -26,24 +28,74 @@ class LangSheet extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('English',style: Theme.of(context).
-                textTheme.
-                bodyMedium?.
-                copyWith(color: AppColors.primaryColor),
-                ),
-                Icon(Icons.done,size: 35,color: AppColors.primaryColor,)
-              ],
+            InkWell(
+              onTap: (){
+                context.setLocale(Locale("en"));
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("english".tr(),
+                    style: Theme.of(context).
+                    textTheme.
+                    bodyMedium?.
+                    copyWith(
+                        color:
+                        pro.appTheme==ThemeMode.dark?
+                        currentLocal==Locale("en")?
+                        AppColors.yellowColor
+                            :
+                        Colors.white
+                            :
+                        currentLocal==Locale("en")?
+                        AppColors.primaryColor
+                            :
+                        AppColors.colorBlack),
+                  ),
+                  currentLocal==Locale("en")?
+                  Icon(Icons.done,size: 35,
+                    color: pro.appTheme==ThemeMode.light?
+                        AppColors.primaryColor
+                        :
+                        AppColors.yellowColor
+                  )
+                      :
+                      SizedBox(),
+                ],
+              ),
             ),
             SizedBox(height: 12,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Arabic',style: Theme.of(context).textTheme.bodyMedium,),
-                Icon(Icons.done,size: 35,color: AppColors.colorBlack)
-              ],
+            InkWell(
+              onTap: (){
+                context.setLocale(Locale("ar"));
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("arabic".tr(),
+                    style: Theme.of(context).
+                    textTheme.bodyMedium?.copyWith(
+                        color: pro.appTheme==ThemeMode.dark?
+                        currentLocal!=Locale("en")?
+                        AppColors.yellowColor
+                            :
+                        Colors.white
+                            :
+                        currentLocal!=Locale("en")?
+                        AppColors.primaryColor
+                            :
+                        AppColors.colorBlack),),
+                  currentLocal!=Locale("en")?
+                  Icon(Icons.done,size: 35,
+                      color: pro.appTheme==ThemeMode.light?
+                      AppColors.primaryColor
+                          :
+                      AppColors.yellowColor
+                  )
+                      :
+                  SizedBox(),
+                ],
+              ),
             )
           ],
         ),

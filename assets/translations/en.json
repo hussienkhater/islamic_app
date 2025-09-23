@@ -1,0 +1,11 @@
+{
+  "theme" : "Theme",
+  "light" : "Light",
+  "dark" : "Dark",
+  "language" : "Language",
+  "english" : "English",
+  "arabic" : "Arabic",
+  "islami" : "Islami",
+  "sura_name" : "Sura Name",
+  "ahadeeth" : "Ahadeeth"
+}
